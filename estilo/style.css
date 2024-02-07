@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+:root{ /* variável em css que facilita bastante na hora de mudar algo no site */
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor3: #3ddc84;
+    --cor4: #2fa866;
+    --cor5: #1a5c37;
+    --cor6: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --font-destaque: 'Bebas Neue', sans-serif;
+    --fonte-android: 'Android', cursive;
+}
+
+*{ /* regra geral para tirar todas as margens e paddings do site e poder configurar cada elemento como quiser depois. sempre usar essa regra */
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after{
+    content: '\00a0\1F517'; /* todos os links que tem páginas externas recebem o emoji de um 'link' no final do conteúdo */
+}
+
+header{
+   background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /* o 'var' foi usado, pois foram criadas variáveis no começo da css com o elemento ':root' */
+
+   min-height: 110px; /* a altura mínima do 'header' */
+   
+   text-align: center; /* todos os textos que estão dentro do 'header' ficarão centralizados */
+
+   padding-top: 40px; /* para deixar o título afastado do topo da página */
+}
+
+header > h1{ 
+   color: white;
+   font-family: var(--font-destaque);
+   font-weight: normal;
+   font-size: 3em; /* aumentar o tamanho da fonte 3x mais que o tamanho normal dela */
+
+   margin-bottom: 10px; /* separar os dois textos que tem no 'header' */
+
+   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.603);
+}
+
+header > p{
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px;
+    padding-right: 10px; /* para ter espaço na lateral direita e não ficar grudado */
+
+    padding-left: 10px; /* para ter espaço na lateral esquerda e não ficar grudado */
+
+    padding-bottom: 30px;
+
+    margin: auto; /* para continuar centralizado mesmo que a tela cresça ou diminua */
+
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.603);
+
+}
+
+nav{
+    background-color: var(--cor5);
+    padding: 10px; /* para desgrudar as bordas e dá uma engordada */
+
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.274); /* colocar uma sombra logo abaixo do 'nav', mas bem discreta */
+
+}
+
+nav > a{
+    color: var(--cor1);
+    padding: 10px; /* para separar um link do outro */
+
+    border-radius: 3px; /* deixar as bordas dos links levemente arredondadas */
+
+    text-decoration: none; /* tirar o sublinhado dos links */
+
+    font-weight: bold; /* deixar letras em negrito */
+
+    transition-duration: 0.5s; /* tempo que a transição leva para aparecer (não é obrigatório) */  
+}
+
+nav > a:hover{
+    background-color: var(--cor4); /* quando o mouse passar por cima do link dentro do 'nav', a cor de fundo munda */
+    
+    color: var(--cor6); /* quando o mouse passar por cima do link dentro do 'nav', a cor da letra muda */  
+    
+    padding: 11px; /* dar a impressão de que os botões ficam maiores quando passamos o mouse por cima */
+}
+
+main{
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px; /* para não deixar o site todo grudado nos cantos */
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1{
+    color: var(--cor5); 
+    font-family: var(--fonte-android);
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+main h2{
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-weight: normal;
+    
+    font-size: 1.3em; /* cresceu 1.2em em relação ao tamanho normal da letra */
+
+    background-image: linear-gradient(to right, var(--cor1), transparent); /* fez um degradê da direita para a esquerda. na esquerda ele perde a cor pois fica transparente */
+
+    text-indent: 8px; /* espaçamento do tipo parágrafo. podia usar o 'padding' também. ex: padding: 0px 0px 0px 8px; e alterar somente o espaçamento da esquerda */
+}
+
+main p{
+    margin: 15px 0px; /* criar uma 'margem' em cima e embaixo de todos os parágrafos do 'main' para que não fiquem grudados nos títulos */
+
+    text-align: justify;
+
+    text-indent: 30px; /* o recuo no início de todos os parágrafos */
+
+    font-size: 1.1em;
+    
+    line-height: 2em; /* altura entre as linhas do parágrafo, para que facilite a leitura e não fiquem grudadas */
+
+}
+
+main strong{
+     color: var(--cor5);
+     font-weight: bold;
+}
+
+main a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+}
+
+main a:hover{
+    text-decoration: underline;
+    color: var(--cor4);
+}
+ 
+main img{
+    width: 100%;
+}
+
+main img.pequena{
+    max-width: 300px; /* coloquei o tamanho max da largura da imagem, assim quando aumentar ou diminuir a tela, ela não ficará mudando de tamanho */
+
+    display: block;   /* a img por padrão não é um block, então precisa transformar em block para poder centralizar com a 'margin: auto;' */
+   
+    margin: auto;
+}
+
+div.video{
+    background-color: white;
+    
+    margin: 0px -20px 30px -20px; /* serve para configurar o fundo verde, deixando as margens direita e esquerda alinhadas na margem do 'main' (fiz isso usando -20px). o 30px é para que o fundo desgrude do 'aside', deixando um espaço entre eles */
+
+    padding: 20px;
+
+    padding-bottom: 56.5%; /* essa propriedade vai servir para que o vídeo volte novamente para dentro do fundo verde e também para diminuir as bordas pretas que aparecem dentro do vídeo. o valor vai depender do próprio vídeo (tem que testar e chegar a um resultado legal) */
+
+    position: relative; /* precisei criar essa propriedade 'position: relative', para estabelecer um elemento 'pai' e poder configurar o 'iframe' vindo do youtube. nesse caso, o elemento 'pai' será o fundo verde que foi criado */
+}
+
+div.video > iframe{
+    position: absolute; /* com o elemento 'pai' estabelecido (o background verde criado na div video), agora podemos mudar a posição do iframe do vídeo como quisermos para deixá-lo responsivo juntamente com o site. todas as medidas estabelecidas abaixo, terão como base o posicionamento do elemento 'pai' */
+
+    top: 5%; /* valor do deslocamento do vídeo (em relação ao fundo verde), para que não fique tão próximo das bordas */
+
+
+    left: 5%; /* valor do deslocamento do vídeo (em relação ao fundo verde), para que não fique tão próximo das bordas */
+
+    width: 90%;
+    height: 90%;
+
+}
+
+aside{
+    background-color: var(--cor1);
+    padding: 11px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.322);
+
+}
+
+aside > h3{
+    background-color: var(--cor5);
+    color: white;
+    padding: 8px;
+
+    margin: -11px -11px 0px -11px; /* o valor negativo é para que o fundo do título se iguale ao topo do fundo do 'aside' (pois assim a margem vaza para fora) */
+
+    border-top-right-radius: 10px; /* para arredondar o topo direito */
+
+    border-top-left-radius: 10px; /* para arredondar o topo esquerdo */
+}
+
+aside ul{
+    list-style-type: '\2714\00a0\00a0'; /* símbolo de check que peguei na emojipedia. o primeiro (\2714) é o código sem as letras. importante começar com a barra invertida. o segundo (00a0) é o código usado para dar espaço entre textos e emojis. importante lembrar que isso não é compatível com todos os navegadores */
+
+    list-style-position: inside; /* para colocar as bolinhas das listas dentro do 'aside'. geralmente usa-se o 'outside' (para fora), mas nesse caso queremos dentro do 'aside', então usa-se 'inside' */
+
+    columns: 2; /* ditar o número de colunas da lista (neste caso coloquei duas, mas poderia ser quantas eu quisesse) */
+
+}
+
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 9px;
+}
+
+footer a{
+    color: var(--cor3);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover{
+   text-decoration: underline;
+   color: var(--cor1);
+}
